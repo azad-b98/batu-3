@@ -1030,8 +1030,8 @@
           <div class="form-group"><label class="form-label">Pilihan Lot</label>
           <div class="form-group"><label class="form-label">Nombor Telefon</label><input type="tel" id="formContact" class="input-box" required></div>
             <select id="formSectorSelect" class="input-box">
-              <option value="722">Lot 722 (Blue)</option>
-              <option value="718">Lot 718 (Yellow)</option>
+              <option value="722">Lot 722 (Yellow)</option>
+              <option value="718">Lot 718 (Blue)</option>
             </select>
           </div>
           <div class="form-group"><label class="form-label">Alamat</label><input type="text" id="formHouseAddress" class="input-box" required></div>
@@ -1095,7 +1095,7 @@
   </div>
 
   <!-- Load fallback data repository -->
-  <!--script src="lots-data.js"></script-->
+  <script src="lots-data.js"></script>
 
   <script>
     /* ==========================================================================
@@ -1486,13 +1486,13 @@
       if (origId) {
         const idx = lotRepository.findIndex(l => l.id === origId);
         if (idx !== -1) {
-          lotObject = { ...lotRepository[idx], id: num, owner, contact: contact, sector: sec, color: sec === '718' ? 'yellow' : 'blue', address: addr };
+          lotObject = { ...lotRepository[idx], id: num, owner, contact: contact, sector: sec, color: sec === '718' ? 'blue' : 'yellow', address: addr };
           lotRepository[idx] = lotObject;
         }
       } else {
         lotObject = {
           id: num,
-          color: sec === '718' ? 'yellow' : 'blue',
+          color: sec === '718' ? 'blue' : 'yellow',
           sector: sec,
           x: 45 + Math.random() * 15,
           y: 45 + Math.random() * 20,
