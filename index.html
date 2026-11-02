@@ -830,7 +830,7 @@
         </div>
         <div id="adminIndicatorBar" style="display:none;">
           <span style="background: #ffedd5; color: #c2410c; padding: 6px 14px; border-radius: 99px; font-weight: 800; font-size: 0.82rem; border: 1.5px solid #fdba74;">
-            👑 Mod Admin Aktif(Edit & Delete Enabled)
+            👑 Mod Admin Aktif (Pindaan Dibenarkan)
           </span>
         </div>
       </div>
@@ -890,7 +890,7 @@
               <p style="color: #64748b; font-size: 0.85rem;">Pekeliling Rasmi</p>
             </div>
             <button id="adminAddAnnounceBtn" class="btn-nav btn-nav-outline" style="display:none; font-size:0.75rem;" onclick="openAppModal('modalAnnounceForm')">
-              + Tambah & Edit
+              + Edit
             </button>
           </div>
           <div class="announcement-box" id="dashboardAnnouncementsList"></div>
@@ -940,7 +940,7 @@
 
       <div class="map-viewport">
         <div style="position:relative; width:100%;">
-          <img id="mapImg" src="https://tfjdproercfhchqyrnsz.supabase.co/storage/v1/object/public/assets/map1.webp" alt="Aerial survey" class="aerial-img" onerror="this.onerror=null; this.src='c:\Projects\webapp\batu3\map1.webp';">
+          <img id="mapImg" src="https://tfjdproercfhchqyrnsz.supabase.co/storage/v1/object/public/assets/map1.webp" alt="Aerial survey" class="aerial-img" onerror="this.onerror=null; this.src='map1.webp';">
           <div id="pinsOverlay" style="position: absolute; inset: 0;"></div>
         </div>
       </div>
@@ -956,11 +956,11 @@
         <button class="btn-close-x" onclick="closeAppModal('modalLotDetail')">✕</button>
       </div>
       <div class="modal-content-area">
-        <div class="data-card-row"><span style="color:#64748b; font-weight:700;">Nombor Lot</span><strong id="detailLotId">-</strong></div>
+        <div class="data-card-row"><span style="color:#64748b; font-weight:700;">Lot/Nombor</span><strong id="detailLotId">-</strong></div>
         <div class="data-card-row"><span style="color:#64748b; font-weight:700;">Pemilik</span><strong id="detailOwnerName">-</strong></div>
         <div class="data-card-row"><span style="color:#64748b; font-weight:700;">Telefon</span><strong id="detailContact">-</strong></div>
-        <div class="data-card-row"><span style="color:#64748b; font-weight:700;">Kelas Lot</span><strong id="detailSectorTag">-</strong></div>
-        <div class="data-card-row"><span style="color:#64748b; font-weight:700;">Alamat Rumah</span><strong id="detailAddress">-</strong></div>
+        <div class="data-card-row"><span style="color:#64748b; font-weight:700;">Lot</span><strong id="detailSectorTag">-</strong></div>
+        <div class="data-card-row"><span style="color:#64748b; font-weight:700;">Tahun</span><strong id="detailAddress">-</strong></div>
 
         <!-- Admin Edit & Delete Controls -->
         <div id="adminLotModifyControls" style="display:none; gap:10px; margin-top:1.25rem; padding-top:1rem; border-top:1.5px dashed #fed7aa;">
@@ -984,7 +984,7 @@
         <div style="max-height: 320px; overflow-y: auto;">
           <table class="data-table">
             <thead>
-              <tr><th>Plot</th><th>Name Pemilik</th><th>Tindakan</th></tr>
+              <tr><th>Plot</th><th>Nama Pemilik</th><th>Butiran</th></tr>
             </thead>
             <tbody id="sectorTableBody"></tbody>
           </table>
@@ -1025,16 +1025,16 @@
       <div class="modal-content-area">
         <form onsubmit="saveLotData(event)">
           <input type="hidden" id="formLotOriginalId">
-          <div class="form-group"><label class="form-label">Pengenal Lot</label><input type="text" id="formLotNumber" class="input-box" required></div>
-          <div class="form-group"><label class="form-label">Name Pemilik</label><input type="text" id="formOwnerName" class="input-box" required></div>
-          <div class="form-group"><label class="form-label">Pilihan Lot</label>
+          <div class="form-group"><label class="form-label">Daftar Lot</label><input type="text" id="formLotNumber" class="input-box" required></div>
+          <div class="form-group"><label class="form-label">Nama Pemilik</label><input type="text" id="formOwnerName" class="input-box" required></div>
           <div class="form-group"><label class="form-label">Nombor Telefon</label><input type="tel" id="formContact" class="input-box" required></div>
+          <div class="form-group"><label class="form-label">Pilihan Lot</label>
             <select id="formSectorSelect" class="input-box">
-              <option value="722">Lot 722 (Yellow)</option>
-              <option value="718">Lot 718 (Blue)</option>
+              <option value="722">Lot 722 (Kuning)</option>
+              <option value="718">Lot 718 (Biru)</option>
             </select>
           </div>
-          <div class="form-group"><label class="form-label">Alamat</label><input type="text" id="formHouseAddress" class="input-box" required></div>
+          <div class="form-group"><label class="form-label">Tahun</label><input type="text" id="formHouseAddress" class="input-box" required></div>
           <button type="submit" class="btn-primary-action">Simpan maklumat</button>
         </form>
       </div>
@@ -1140,7 +1140,7 @@
         }, 300);
       } else {
         feedback.style.color = 'var(--danger)';
-        feedback.textContent = 'Invalid password. Enter "batutiga".';
+        feedback.textContent = 'Invalid password. Enter "nama kampung".';
       }
     }
 
@@ -1161,7 +1161,7 @@
       const pass = document.getElementById('adminPasswordInput').value.trim();
       const feedback = document.getElementById('adminAuthFeedback');
 
-      if (pass === 'adminbatutiga') {
+      if (pass === 'adminbatu3') {
         isAdminAuthenticated = true;
         feedback.textContent = '';
         document.getElementById('adminPasswordInput').value = '';
@@ -1390,7 +1390,7 @@
           <td>${lot.owner}</td>
           <td>
             <button class="btn-nav btn-nav-outline" style="padding:4px 10px; font-size:0.75rem;" onclick="viewLotFromSector('${lot.id}')">
-              View
+              lihat
             </button>
           </td>
         </tr>
@@ -1413,7 +1413,7 @@
       document.getElementById('detailLotId').textContent = lot.id;
       document.getElementById('detailOwnerName').textContent = lot.owner;
       document.getElementById('detailContact').textContent = lot.contact || '-';
-      document.getElementById('detailSectorTag').textContent = `Sector Lot ${lot.sector} (${lot.color.toUpperCase()})`;
+      document.getElementById('detailSectorTag').textContent = `Lot ${lot.sector} (${lot.color.toUpperCase()})`;
       document.getElementById('detailAddress').textContent = lot.address;
       document.getElementById('adminLotModifyControls').style.display = isAdminAuthenticated ? 'flex' : 'none';
 
@@ -1507,6 +1507,14 @@
         await dbClient.from('lots').upsert([lotObject]);
       }
 
+      // === FIX: SAVE TO BROWSER STORAGE IMMEDIATELY ===
+      localStorage.setItem('batu3_saved_lots', JSON.stringify(lotRepository));
+
+      // Sync with Supabase if connected
+      if (dbClient && lotObject) {
+        await dbClient.from('lots').upsert([lotObject]);
+      }
+
       closeAppModal('modalLotForm');
       renderMapPins();
       updateCounts();
@@ -1519,6 +1527,8 @@
         await dbClient.from('lots').delete().eq('id', currentlyInspectedLotId);
       }
 
+      localStorage.setItem('batu3_saved_lots', JSON.stringify(lotRepository));
+
       lotRepository = lotRepository.filter(l => l.id !== currentlyInspectedLotId);
       closeAppModal('modalLotDetail');
       renderMapPins();
@@ -1527,10 +1537,23 @@
 
     // Initialize application and fetch cloud updates
     window.addEventListener('DOMContentLoaded', async () => {
+      // 1. Check if there are previously saved edits in browser storage
+      const localSavedLots = localStorage.getItem('batu3_saved_lots');
+      if (localSavedLots) {
+        try {
+          lotRepository = JSON.parse(localSavedLots);
+        } catch (e) {
+          console.warn("Could not parse saved lots, using lots-data.js");
+        }
+      }
+
+      // 2. Render initial UI
       renderAllAnnouncements();
       renderGallery();
+      renderMapPins();
       updateCounts();
 
+      // 3. If Supabase is connected, sync from the cloud
       if (dbClient) {
         await Promise.all([
           loadAnnouncementsFromCloud(),
@@ -1539,6 +1562,7 @@
         ]);
       }
     });
+
   </script>
 </body>
 </html>
